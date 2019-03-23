@@ -1,0 +1,2 @@
+INSERT INTO beer ( name, type, brewery, description, abv ) VALUES
+  ('Boston Lager','Vienna Lager','Sam Adams','Full-flavored with a balance of malty sweetness contrasted by hop spiciness and a smooth finish.','5.00');
