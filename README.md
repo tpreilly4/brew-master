@@ -7,7 +7,7 @@ Ideally, this project will serve as the backend for a future web applications th
 
 ## Current Project Status
 * Connects to local MySQL Database and returns empty DB table 'beer' through the url: http://localhost:8080/brewdata/all
-* Must have gradle installed. Must have JDK 1.8 or newer. Use command ./gradlew to run.
+* Must have gradle installed. Must have JDK 1.8 or newer. Use command ./gradlew bootRun to run.
 * You can add values to 'beer' table manually via MySQL shell, but POST's are not yet functional. To be continued.
 
 
