@@ -5,6 +5,11 @@ A (currently small) project that I am using to learn how to develop with web app
  \
 Ideally, this project will serve as the backend for a future web applications that will allow users to review the craft beers that they drink, and view data coming from other users. As I learn more, things will definitely change.
 
+## Current Project Status
+* Connects to local MySQL Database and returns empty DB table 'beer' through the url: http://localhost:8080/brewdata/all
+* Must have gradle installed. Must have JDK 1.8 or newer. Use command ./gradlew to run.
+* You can add values to 'beer' table manually via MySQL shell, but POST's are not yet functional. To be continued.
+
 
 ## API Goals
 
