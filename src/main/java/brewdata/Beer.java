@@ -47,13 +47,9 @@ public class Beer{
         this.type = type;
     }
 
-    public double getAbv() {
-        return abv;
-    }
+    public double getAbv() { return abv; }
 
-    public void setAbv(double abv) {
-        this.abv = abv;
-    }
+    public void setAbv(String abv) { this.abv = Double.parseDouble(abv); }
 
     public String getDescription() {
         return description;
