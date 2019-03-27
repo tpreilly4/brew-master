@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Optional;
+import java.util.*;
+
 import brewdata.Beer;
 import brewdata.BeerRepository;
 
@@ -21,6 +24,12 @@ public class BeerController {
     @GetMapping(path="/all")
     public @ResponseBody Iterable<Beer> getAllBeers() {
         return beerRepository.findAll();
+    }
+
+    //will return one instance of beer by id
+    @GetMapping(path="/onebeer")
+    public @ResponseBody Optional<Beer> getOneBeer(@RequestParam String id) {
+        return beerRepository.findById(Integer.parseInt(id));
     }
 
     @PostMapping(path="/addbeer") // Map ONLY GET Requests
