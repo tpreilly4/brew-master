@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -32,7 +33,7 @@ public class BeerController {
         return beerRepository.findById(Integer.parseInt(id));
     }
 
-    @PostMapping(path="/addbeer") // Map ONLY GET Requests
+    @PostMapping(path="/addbeer") // Map ONLY POST Requests
     public @ResponseBody String addNewBeer (@RequestParam String name
             , @RequestParam String type , @RequestParam String abv, @RequestParam String desc, @RequestParam String brewery) {
         // @ResponseBody means the returned String is the response, not a view name
@@ -45,11 +46,14 @@ public class BeerController {
         beer.setDescription(desc);
         beer.setBrewery(brewery);
         beerRepository.save(beer);
-        return "success";
+        return "successfully added " + name + " to the DB";
     }
 
-//    @PostMapping("/addbeer")
-//    Beer newBeer(@RequestBody Beer newBeer) {
-//        return beerRepository.save(newBeer);
-//    }
+    @DeleteMapping(path="/removebeer")
+    public @ResponseBody String deleteOneBeer(@RequestParam String id) {
+        String msg = "deleted " + beerRepository.findById(Integer.parseInt(id)) + " from the DB" ;
+        beerRepository.deleteById(Integer.parseInt(id));
+        return msg;
+    }
+
 }

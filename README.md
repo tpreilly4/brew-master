@@ -6,9 +6,10 @@ A (currently small) project that I am using to learn how to develop with web app
 Ideally, this project will serve as the backend for a future web applications that will allow users to review the craft beers that they drink, and view data coming from other users. As I learn more, things will definitely change.
 
 ## Current Project Status
-* Connects to local MySQL Database and returns empty DB table 'beer' through GET endpoint /brewdata/all
-* Can POST Beer objects to database through url /brewdata/addbeer
+* Can GET all Beer objects in DB through URL: /brewdata/all
+* Can POST Beer objects to database through URL: /brewdata/addbeer
 * Can GET single Beer object through url /brewdata/onebeer by passing id in encoded url (ie. /brewdata/addbeer?id=1)
+* Can DELETE single Beer object through url /brewdata/removebeer by passing id in encoded url (ie. /brewdata/addbeer?id=1)
 * Must have gradle installed. Must have JDK 1.8 or newer. Use command ./gradlew bootRun to run.
 * You can add values to 'beer' table manually via MySQL shell, but POST's are not yet functional. To be continued.
 
@@ -30,7 +31,7 @@ Ideally, this project will serve as the backend for a future web applications th
    </td>
   </tr>
   <tr>
-   <td>/addBeer
+   <td>/addbeer
    </td>
    <td>Add a beer + data to table
    </td>
@@ -42,7 +43,7 @@ Ideally, this project will serve as the backend for a future web applications th
    </td>
   </tr>
   <tr>
-   <td>/removeBeer
+   <td>/removebeer
    </td>
    <td>Remove a beer
    </td>
