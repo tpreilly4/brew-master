@@ -33,6 +33,21 @@ public class BeerController {
         return beerRepository.findById(Integer.parseInt(id));
     }
 
+    @GetMapping(path="/getbyname")
+    public @ResponseBody Optional<Beer> getByName(String name) {
+        return beerRepository.findByNameIn(name);
+    }
+
+    @GetMapping(path="/getbybrewery")
+    public @ResponseBody List<Beer> getByBrewery(String brewery) {
+        return beerRepository.findByBreweryIn(brewery);
+    }
+
+    @GetMapping(path="/getbytype")
+    public @ResponseBody List<Beer> getByType(String type) {
+        return beerRepository.findByTypeIn(type);
+    }
+
     @PostMapping(path="/addbeer") // Map ONLY POST Requests
     public @ResponseBody String addNewBeer (@RequestParam String name
             , @RequestParam String type , @RequestParam String abv, @RequestParam String desc, @RequestParam String brewery) {
