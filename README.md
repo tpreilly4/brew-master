@@ -1,22 +1,16 @@
 
 # Brew-master
 
-A (currently small) project that I am using to learn how to develop with web apps Java on the backend using Spring Boot, Hibernate, and MySQL. Frontend will likely end up being made with some modern JS framework. \
+A small project that I am using to learn how to develop with web apps Java on the backend using Spring Boot, Hibernate, and MySQL. Frontend will likely end up being made with some modern JS framework. \
  \
 Ideally, this project will serve as the backend for a future web applications that will allow users to review the craft beers that they drink, and view data coming from other users. As I learn more, things will definitely change.
 
 ## Current Project Status
-* Can GET all Beer objects in DB through URL: /brewdata/all
-* Can POST Beer objects to database through URL: /brewdata/addbeer
-* Can GET single Beer object through url /brewdata/onebeer by passing id in encoded url (ie. /brewdata/addbeer?id=1)
-* Can DELETE single Beer object through url /brewdata/removebeer by passing id in encoded url (ie. /brewdata/addbeer?id=1)
-* Must have gradle installed. Must have JDK 1.8 or newer. Use command ./gradlew bootRun to run.
-* You can add values to 'beer' table manually via MySQL shell, but POST's are not yet functional. To be continued.
+* See API Endpoints table below for current API functionality
+* Must have gradle installed. Must have JDK 1.8 or newer. Enter command `./gradlew bootRun` from project directory to run.
+* Postman helps. Currently GET's can only be performed by encoded URL.
 
-
-## API Goals
-
-
+## API Endpoints
 <table>
   <tr>
    <td><strong>Name/path</strong>
@@ -31,7 +25,7 @@ Ideally, this project will serve as the backend for a future web applications th
    </td>
   </tr>
   <tr>
-   <td>/addbeer
+   <td>/brewdata/addbeer
    </td>
    <td>Add a beer + data to table
    </td>
@@ -43,7 +37,7 @@ Ideally, this project will serve as the backend for a future web applications th
    </td>
   </tr>
   <tr>
-   <td>/removebeer
+   <td>/brewdata/removebeer
    </td>
    <td>Remove a beer
    </td>
@@ -55,7 +49,7 @@ Ideally, this project will serve as the backend for a future web applications th
    </td>
   </tr>
   <tr>
-   <td>/all
+   <td>/brewdata/all
    </td>
    <td>Display all Beer objects
    </td>
@@ -67,7 +61,7 @@ Ideally, this project will serve as the backend for a future web applications th
    </td>
   </tr>
   <tr>
-   <td>/oneBeer
+   <td>/brewdata/oneBeer
    </td>
    <td>Display single beer
    </td>
@@ -78,6 +72,42 @@ Ideally, this project will serve as the backend for a future web applications th
    <td>Row of data from beer table corresponding to id
    </td>
   </tr>
+  <tr>
+    <td>/brewdata/getbyname
+    </td>
+    <td>Get a beer by its name.
+    </td>
+    <td>GET
+    </td>
+    <td>name
+    </td>
+    <td>Returns Beer object corresponding to queried name. Returns null if does not exist.
+    </td>
+   </tr>
+   <tr>
+     <td>/brewdata/getbytype
+     </td>
+     <td>Get beers by type.
+     </td>
+     <td>GET
+     </td>
+     <td>type
+     </td>
+     <td>Returns list of Beer objects corresponding to queried type. Returns empty list if none exist.
+     </td>
+    </tr>
+    <tr>
+     <td>/brewdata/getbybrewery
+     </td>
+     <td>Get beers by brewery.
+     </td>
+     <td>GET
+     </td>
+     <td>brewery
+     </td>
+     <td>Returns list of Beer objects corresponding to queried brewery. Returns empty list if none exist.
+     </td>
+    </tr>
 </table>
 
 
@@ -90,7 +120,7 @@ Ideally, this project will serve as the backend for a future web applications th
 
 * As a user, I want to view some data about a beer that has been added, OR view all data about all beers that have been added.
 
-
+* As a user, I want to see all beers of a specified type or all beers from a specified brewery.
 
 ## Database Structuring
 
